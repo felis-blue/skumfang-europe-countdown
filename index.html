@@ -11,49 +11,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
+
+    <link rel="stylesheet" id="styles" type="text/css" href="style.css">
+    <script src="index.js"></script>
 </head>
-<style>
-    .styling {
-        font-family: sans-serif;
-        line-height: 1.05em;
-        font-size: min(9vh, 8vw);
-        margin: auto;
-        padding: calc(min(5vh, 5vw) + 10px);
-        color: #ffcdbc;
-        border-radius: calc(min(5vh, 5vw) + 10px);
-        margin: 20px;
-        background: rgb(93, 78, 96);
-        background: linear-gradient(-13deg, rgba(93, 78, 96, 1) 0%, rgba(111, 93, 111, 1) 80%, rgba(130, 108, 127, 1) 100%);
-        box-shadow: 10px 15px 10px 10px #201d20;
-    }
-
-    .num {
-        font-weight: bold;
-        display: inline-block;
-        color: #f6853f;
-    }
-
-    .border {
-        padding: calc(min(5vh, 5vw) + 10px);
-        border-color: #f6853f;
-        border-width: 2px;
-        border-style: solid;
-    }
-
-    .wrapper {
-        margin: 0;
-        padding: 0;
-        min-height: 95vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
-
-    body {
-        background: #242124;
-    }
-</style>
 
 <body>
     <div class="wrapper">
@@ -65,35 +26,5 @@
         </div>
     </div>
 </body>
-
-<script>
-    let deadline = Date.parse('2023-08-02T00:00+02:00');
-    let intervalID = null;
-
-    function update_countdown() {
-        var now = new Date().getTime();
-        var t = deadline - now;
-
-        if (t < 0) {
-            clearInterval(intervalID);
-            document.getElementById('countdown').innerHTML = null;
-            document.getElementById('text').innerHTML = "Skumfang's Europe Adventures are afoot!!!";
-            return;
-        }
-
-        var days = Math.floor(t / 1000 / 60 / 60 / 24);
-        t -= days * 1000 * 60 * 60 * 24;
-        var hours = Math.floor(t / 1000 / 60 / 60);
-        t -= hours * 1000 * 60 * 60;
-        var minutes = Math.floor(t / 1000 / 60);
-        t -= minutes * 1000 * 60;
-        var seconds = Math.floor(t / 1000);
-        document.getElementById('countdown').innerHTML = `<span class="num">${days}</span> days,<br><span class="num">${hours}</span> hours,<br><span class="num">${minutes}</span> minutes and<br><span class="num">${seconds}</span> seconds`;
-    }
-
-    intervalID = setInterval(update_countdown, 1000);
-    update_countdown();
-
-</script>
 
 </html>
