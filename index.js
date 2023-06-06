@@ -1,4 +1,4 @@
-let deadline = Date.parse('2023-08-02T00:00+02:00');
+let deadline = Date.parse('2023-08-02T08:00+02:00');
 let intervalID = null;
 
 window.onload = () => {
